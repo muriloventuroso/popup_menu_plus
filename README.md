@@ -1,4 +1,4 @@
-# Popup Menu 2
+# Popup Menu Plus
 
 This project is a fork of chinabrant/popup_menu.
 
