@@ -5,10 +5,10 @@ This project is a fork of chinabrant/popup_menu.
 This project was written completely in dart, and it supports both iOS and Android.
 
 # Screenshots
-<img src="01.png" >
-<img src="02.png">
-<img src="03.png">
-<img src="04.png">
+<img src="https://github.com/muriloventuroso/popup_menu_plus/raw/main/01.png" >
+<img src="https://github.com/muriloventuroso/popup_menu_plus/raw/main/02.png">
+<img src="https://github.com/muriloventuroso/popup_menu_plus/raw/main/03.png">
+<img src="https://github.com/muriloventuroso/popup_menu_plus/raw/main/04.png">
 
 # Todo
 - [ ] show/hide animation
