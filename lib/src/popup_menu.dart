@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
+import 'package:popup_menu2/src/custom_menu_layout.dart';
 import 'package:popup_menu2/src/grid_menu_layout.dart';
 import 'package:popup_menu2/src/list_menu_layout.dart';
 import 'package:popup_menu2/src/menu_config.dart';
@@ -12,13 +13,14 @@ import 'menu_item.dart';
 export 'menu_item.dart';
 export 'menu_config.dart';
 
-enum MenuType { grid, list }
+enum MenuType { grid, list, custom }
 
 typedef MenuClickCallback = void Function(PopUpMenuItemProvider item);
 
 class PopupMenu {
   OverlayEntry? _entry;
-  late List<PopUpMenuItemProvider> items;
+  List<PopUpMenuItemProvider>? items;
+  Widget? content;
 
   /// callback
   final VoidCallback? onDismiss;
@@ -37,12 +39,16 @@ class PopupMenu {
 
   PopupMenu({
     required this.context,
-    required this.items,
     required this.config,
+    this.items,
+    this.content,
     this.onClickMenu,
     this.onDismiss,
     this.onShow,
-  });
+  }) {
+    assert(config.type == MenuType.custom && content != null ||
+        config.type != MenuType.custom && items != null);
+  }
 
   MenuLayout? menuLayout;
 
@@ -58,7 +64,7 @@ class PopupMenu {
     if (config.type == MenuType.grid) {
       menuLayout = GridMenuLayout(
         config: config,
-        items: items,
+        items: items!,
         onDismiss: dismiss,
         context: context,
         onClickMenu: onClickMenu,
@@ -66,10 +72,17 @@ class PopupMenu {
     } else if (config.type == MenuType.list) {
       menuLayout = ListMenuLayout(
         config: config,
-        items: items,
+        items: items!,
         onDismiss: dismiss,
         context: context,
         onClickMenu: onClickMenu,
+      );
+    } else if (config.type == MenuType.custom) {
+      menuLayout = CustomMenuLayout(
+        config: config,
+        content: content!,
+        onDismiss: dismiss,
+        context: context,
       );
     }
 

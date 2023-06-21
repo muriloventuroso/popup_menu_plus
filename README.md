@@ -2,7 +2,9 @@
 
 This project is a fork of chinabrant/popup_menu.
 
-# Screenshot
+This project was written completely in dart, and it supports both iOS and Android.
+
+# Screenshots
 <img src="01.png" >
 <img src="02.png">
 <img src="03.png">
@@ -86,6 +88,30 @@ PopupMenu menu = PopupMenu(
                 color: Colors.white,
               ))
         ],
+        onClickMenu: onClickMenu,
+        onDismiss: onDismiss);
+    menu.show(widgetKey: btnKey2);
+```
+
+with custom content:
+
+```dart
+PopupMenu menu = PopupMenu(
+        context: context,
+        config: const MenuConfig(
+            type: MenuType.custom,
+            itemHeight: 200,
+            itemWidth: 200,
+            backgroundColor: Colors.green,
+        ),
+        backgroundColor: Colors.teal,
+        lineColor: Colors.tealAccent,
+        maxColumn: 3,
+        content: Container(
+            width: 50,
+            height: 50,
+            color: Colors.red,
+          ),
         onClickMenu: onClickMenu,
         onDismiss: onDismiss);
     menu.show(widgetKey: btnKey2);

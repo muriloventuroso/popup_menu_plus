@@ -34,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   GlobalKey btnKey2 = GlobalKey();
   GlobalKey btnKey3 = GlobalKey();
   GlobalKey btnKey4 = GlobalKey();
+  GlobalKey btnKey5 = GlobalKey();
 
   @override
   void initState() {
@@ -83,6 +84,12 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 45.0,
               onPressed: onDismissOnlyBeCalledOnce,
               child: const Text('Show Menu'),
+            ),
+            MaterialButton(
+              key: btnKey5,
+              height: 45.0,
+              onPressed: menuCustom,
+              child: const Text('Show Menu Custom'),
             ),
             MaterialButton(
               key: btnKey4,
@@ -158,6 +165,29 @@ class _MyHomePageState extends State<MyHomePage> {
       onDismiss: onDismiss,
     );
     menu.show(widgetKey: btnKey);
+  }
+
+  void menuCustom() {
+    PopupMenu menu = PopupMenu(
+      context: context,
+      config: const MenuConfig(
+          type: MenuType.custom,
+          itemHeight: 200,
+          itemWidth: 200,
+          backgroundColor: Colors.blue),
+      content: Row(
+        children: [
+          Container(
+            width: 50,
+            height: 50,
+            color: Colors.red,
+          ),
+        ],
+      ),
+      onClickMenu: onClickMenu,
+      onDismiss: onDismiss,
+    );
+    menu.show(widgetKey: btnKey5);
   }
 
   //
