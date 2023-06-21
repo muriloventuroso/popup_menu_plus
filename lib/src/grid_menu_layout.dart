@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:popup_menu2/popup_menu.dart';
+import 'package:popup_menu2/popup_menu2.dart';
 import 'package:popup_menu2/src/menu_layout.dart';
 
 import 'menu_item_widget.dart';

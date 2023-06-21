@@ -1,7 +1,8 @@
 name: popup_menu2
-description: A new Flutter package project.
+description: A Flutter Popup Menu Widget.
 version: 0.0.1
-homepage:
+homepage: https://github.com/muriloventuroso/popup_menu2
+repository: https://github.com/muriloventuroso/popup_menu2
 
 environment:
   sdk: '>=3.0.5 <4.0.0'

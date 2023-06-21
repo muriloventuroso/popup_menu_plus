@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:popup_menu2/popup_menu.dart';
+import 'package:popup_menu2/popup_menu2.dart';
 
 import 'gesture_demo.dart';
 
