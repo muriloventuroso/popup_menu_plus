@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:popup_menu2/src/popup_menu.dart';
+import 'package:popup_menu_plus/src/popup_menu.dart';
 
 import 'menu_item.dart';
 

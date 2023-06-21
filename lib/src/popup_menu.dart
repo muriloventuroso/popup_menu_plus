@@ -1,13 +1,13 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
-import 'package:popup_menu2/src/custom_menu_layout.dart';
-import 'package:popup_menu2/src/grid_menu_layout.dart';
-import 'package:popup_menu2/src/list_menu_layout.dart';
-import 'package:popup_menu2/src/menu_config.dart';
-import 'package:popup_menu2/src/menu_layout.dart';
-import 'package:popup_menu2/src/triangle_painter.dart';
-import 'package:popup_menu2/src/utils.dart';
+import 'package:popup_menu_plus/src/custom_menu_layout.dart';
+import 'package:popup_menu_plus/src/grid_menu_layout.dart';
+import 'package:popup_menu_plus/src/list_menu_layout.dart';
+import 'package:popup_menu_plus/src/menu_config.dart';
+import 'package:popup_menu_plus/src/menu_layout.dart';
+import 'package:popup_menu_plus/src/triangle_painter.dart';
+import 'package:popup_menu_plus/src/utils.dart';
 import 'menu_item.dart';
 
 export 'menu_item.dart';

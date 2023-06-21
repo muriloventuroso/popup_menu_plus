@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:popup_menu2/popup_menu2.dart';
+import 'package:popup_menu_plus/popup_menu_plus.dart';
 
 class GestureDemo extends StatefulWidget {
   const GestureDemo({super.key});
