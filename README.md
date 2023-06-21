@@ -1,4 +1,4 @@
-<img src="popupmenu.png" >
+# Popup Menu 2
 
 This project is a fork of chinabrant/popup_menu.
 
