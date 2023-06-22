@@ -33,6 +33,12 @@ class ListMenuLayout implements MenuLayout {
                 height: height,
                 decoration: BoxDecoration(
                     color: config.backgroundColor,
+                    border: config.border != null
+                        ? Border.all(
+                            color: config.border!.color,
+                            width: config.border!.width,
+                          )
+                        : null,
                     borderRadius: BorderRadius.circular(10.0)),
                 child: Column(
                   children: items.map((item) {
@@ -75,7 +81,9 @@ class ListMenuLayout implements MenuLayout {
   }
 
   @override
-  double get height => config.itemHeight * items.length;
+  double get height =>
+      config.itemHeight * items.length +
+      (config.border != null ? config.border!.width * 2 : 0);
 
   @override
   double get width => config.itemWidth;

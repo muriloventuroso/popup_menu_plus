@@ -170,11 +170,15 @@ class _MyHomePageState extends State<MyHomePage> {
   void menuCustom() {
     PopupMenu menu = PopupMenu(
       context: context,
-      config: const MenuConfig(
+      config: MenuConfig(
           type: MenuType.custom,
           itemHeight: 200,
           itemWidth: 400,
-          backgroundColor: Colors.blue),
+          backgroundColor: Colors.blue,
+          border: BorderConfig(
+            width: 4,
+            color: Colors.black,
+          )),
       content: Row(
         children: [
           Container(
@@ -224,7 +228,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void listMenu() {
     PopupMenu menu = PopupMenu(
         context: context,
-        config: MenuConfig.forList(),
+        config: MenuConfig.forList(
+            border: BorderConfig(width: 2, color: Colors.black)),
         items: [
           // MenuItem.forList(
           //     title: 'Copy', image: Image.asset('assets/copy.png')),

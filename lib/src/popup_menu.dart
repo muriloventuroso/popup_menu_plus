@@ -120,24 +120,33 @@ class PopupMenu {
             children: <Widget>[
               // triangle arrow
               Positioned(
+                left: layoutp.offset.dx,
+                top: layoutp.offset.dy +
+                    ((config.border?.width ?? 0) * (layoutp.isDown ? -1 : 1.5)),
+                child: menu.build(),
+              ),
+              Positioned(
                 left: layoutp.attachRect.left +
                     layoutp.attachRect.width / 2.0 -
                     7.5,
                 top: layoutp.isDown
-                    ? layoutp.offset.dy + layoutp.height
-                    : layoutp.offset.dy - config.arrowHeight,
+                    ? layoutp.offset.dy +
+                        layoutp.height -
+                        ((config.border?.width ?? 0))
+                    : layoutp.offset.dy -
+                        config.arrowHeight +
+                        ((config.border?.width ?? 0)),
                 child: CustomPaint(
-                  size: Size(15.0, config.arrowHeight),
+                  size: Size(
+                      config.arrowHeight + (config.border?.width ?? 0) + 5,
+                      config.arrowHeight + (config.border?.width ?? 0)),
                   painter: TrianglePainter(
-                      isDown: layoutp.isDown, color: config.backgroundColor),
+                      isDown: layoutp.isDown,
+                      color: config.backgroundColor,
+                      border: config.border),
                 ),
               ),
               // menu content
-              Positioned(
-                left: layoutp.offset.dx,
-                top: layoutp.offset.dy,
-                child: menu.build(),
-              )
             ],
           )),
     );

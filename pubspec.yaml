@@ -1,6 +1,6 @@
 name: popup_menu_plus
 description: A Flutter Popup Menu Widget, written completely in dart, and it supports both iOS and Android.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/muriloventuroso/popup_menu_plus
 repository: https://github.com/muriloventuroso/popup_menu_plus
 

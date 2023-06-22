@@ -33,6 +33,12 @@ class CustomMenuLayout implements MenuLayout {
             height: height,
             decoration: BoxDecoration(
                 color: config.backgroundColor,
+                border: config.border != null
+                    ? Border.all(
+                        color: config.border!.color,
+                        width: config.border!.width,
+                      )
+                    : null,
                 borderRadius: BorderRadius.circular(10.0)),
             child: content,
           ),

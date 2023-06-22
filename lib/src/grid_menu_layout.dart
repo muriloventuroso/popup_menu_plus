@@ -163,6 +163,12 @@ class GridMenuLayout implements MenuLayout {
                 height: menuHeight(),
                 decoration: BoxDecoration(
                     color: config.backgroundColor,
+                    border: config.border != null
+                        ? Border.all(
+                            color: config.border!.color,
+                            width: config.border!.width,
+                          )
+                        : null,
                     borderRadius: BorderRadius.circular(10.0)),
                 child: Column(
                   children: _createRows(),
