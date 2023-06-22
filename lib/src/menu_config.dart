@@ -30,6 +30,8 @@ class MenuConfig {
 
   final BorderConfig? border;
 
+  final BorderRadiusGeometry? borderRadius;
+
   const MenuConfig(
       {this.type = MenuType.grid,
       this.itemWidth = 72.0,
@@ -39,7 +41,8 @@ class MenuConfig {
       this.backgroundColor = const Color(0xff232323),
       this.highlightColor = const Color(0xff353535),
       this.lineColor = const Color(0x55000000),
-      this.border});
+      this.border,
+      this.borderRadius = const BorderRadius.all(Radius.circular(10.0))});
 
   factory MenuConfig.forList({
     double itemWidth = 120.0,
@@ -49,6 +52,7 @@ class MenuConfig {
     Color highlightColor = const Color(0xff353535),
     Color lineColor = const Color(0x55000000),
     BorderConfig? border,
+    BorderRadiusGeometry? borderRadius,
   }) {
     return MenuConfig(
       type: MenuType.list,
@@ -59,6 +63,7 @@ class MenuConfig {
       highlightColor: highlightColor,
       lineColor: lineColor,
       border: border,
+      borderRadius: borderRadius,
     );
   }
 }

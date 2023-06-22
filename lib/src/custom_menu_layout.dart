@@ -23,7 +23,7 @@ class CustomMenuLayout implements MenuLayout {
       width: width,
       height: height,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: config.borderRadius,
         child: GestureDetector(
           onTap: () {
             onDismiss();
@@ -32,14 +32,15 @@ class CustomMenuLayout implements MenuLayout {
             width: width,
             height: height,
             decoration: BoxDecoration(
-                color: config.backgroundColor,
-                border: config.border != null
-                    ? Border.all(
-                        color: config.border!.color,
-                        width: config.border!.width,
-                      )
-                    : null,
-                borderRadius: BorderRadius.circular(10.0)),
+              color: config.backgroundColor,
+              border: config.border != null
+                  ? Border.all(
+                      color: config.border!.color,
+                      width: config.border!.width,
+                    )
+                  : null,
+              borderRadius: config.borderRadius,
+            ),
             child: content,
           ),
         ),
