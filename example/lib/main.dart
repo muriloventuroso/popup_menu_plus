@@ -173,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
       config: const MenuConfig(
           type: MenuType.custom,
           itemHeight: 200,
-          itemWidth: 200,
+          itemWidth: 400,
           backgroundColor: Colors.blue),
       content: Row(
         children: [

@@ -51,9 +51,6 @@ PopupMenu menu = PopupMenu(
             lineColor: Colors.greenAccent,
             highlightColor: Colors.lightGreenAccent,
         ),
-        backgroundColor: Colors.teal,
-        lineColor: Colors.tealAccent,
-        maxColumn: 3,
         items: [
           PopUpMenuItem(title: 'Copy', image: Image.asset('assets/copy.png')),
           PopUpMenuItem(
@@ -104,9 +101,6 @@ PopupMenu menu = PopupMenu(
             itemWidth: 200,
             backgroundColor: Colors.green,
         ),
-        backgroundColor: Colors.teal,
-        lineColor: Colors.tealAccent,
-        maxColumn: 3,
         content: Container(
             width: 50,
             height: 50,

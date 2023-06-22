@@ -154,8 +154,7 @@ class PopupMenu {
       dx = 10.0;
     }
 
-    _screenSize ??=
-        View.of(context).physicalSize / View.of(context).devicePixelRatio;
+    _screenSize ??= MediaQuery.of(context).size;
 
     if (dx + contentWidth > _screenSize!.width && dx > 10.0) {
       double tempDx = _screenSize!.width - contentWidth - 10;
