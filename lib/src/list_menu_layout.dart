@@ -27,7 +27,7 @@ class ListMenuLayout implements MenuLayout {
       child: Column(
         children: <Widget>[
           ClipRRect(
-              borderRadius: config.borderRadius,
+              borderRadius: config.borderRadius ?? BorderRadius.zero,
               child: Container(
                 width: width,
                 height: height,

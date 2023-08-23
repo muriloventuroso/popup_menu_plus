@@ -23,7 +23,7 @@ class CustomMenuLayout implements MenuLayout {
       width: width,
       height: height,
       child: ClipRRect(
-        borderRadius: config.borderRadius,
+        borderRadius: config.borderRadius ?? BorderRadius.zero,
         child: GestureDetector(
           onTap: () {
             onDismiss();
