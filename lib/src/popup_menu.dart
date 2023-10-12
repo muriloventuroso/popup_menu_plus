@@ -26,6 +26,7 @@ class PopupMenu {
   final VoidCallback? onDismiss;
   final MenuClickCallback? onClickMenu;
   final VoidCallback? onShow;
+  final Duration? duration;
 
   /// Cannot be null
   BuildContext context;
@@ -36,16 +37,17 @@ class PopupMenu {
 
   final MenuConfig config;
   Size? _screenSize;
+  AnimationController? animationController;
 
-  PopupMenu({
-    required this.context,
-    required this.config,
-    this.items,
-    this.content,
-    this.onClickMenu,
-    this.onDismiss,
-    this.onShow,
-  }) {
+  PopupMenu(
+      {required this.context,
+      required this.config,
+      this.items,
+      this.content,
+      this.onClickMenu,
+      this.onDismiss,
+      this.onShow,
+      this.duration}) {
     assert(config.type == MenuType.custom && content != null ||
         config.type != MenuType.custom && items != null);
   }
@@ -93,6 +95,13 @@ class PopupMenu {
       menuLayout!.height,
     );
 
+    if (duration != null && animationController == null) {
+      animationController = AnimationController(
+        duration: duration!,
+        vsync: Navigator.of(context).overlay!,
+      );
+    }
+
     _entry = OverlayEntry(builder: (context) {
       return build(layoutp, menuLayout!);
     });
@@ -103,7 +112,7 @@ class PopupMenu {
   }
 
   Widget build(LayoutP layoutp, MenuLayout menu) {
-    return GestureDetector(
+    Widget child = GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
         dismiss();
@@ -150,6 +159,13 @@ class PopupMenu {
             ],
           )),
     );
+    if (animationController != null) {
+      child = AnimatedPopUpMenu(
+        controller: animationController!,
+        child: child,
+      );
+    }
+    return child;
   }
 
   LayoutP _calculateOffset(
@@ -192,12 +208,14 @@ class PopupMenu {
     );
   }
 
-  void dismiss() {
+  void dismiss() async {
     if (!_isShow) {
       // Remove method should only be called once
       return;
     }
-
+    if (animationController != null) {
+      await animationController!.reverse();
+    }
     _entry?.remove();
     _isShow = false;
     onDismiss?.call();
@@ -218,4 +236,48 @@ class LayoutP {
     required this.attachRect,
     required this.isDown,
   });
+}
+
+class AnimatedPopUpMenu extends StatefulWidget {
+  final Widget child;
+  final AnimationController controller;
+  const AnimatedPopUpMenu(
+      {required this.child, required this.controller, super.key});
+
+  @override
+  State<AnimatedPopUpMenu> createState() => _AnimatedPopUpMenuState();
+}
+
+class _AnimatedPopUpMenuState extends State<AnimatedPopUpMenu>
+    with SingleTickerProviderStateMixin {
+  late Animation<double> opacityAnimation;
+  AnimationController get controller => widget.controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    opacityAnimation =
+        CurvedAnimation(parent: controller, curve: Curves.easeIn);
+
+    controller.addListener(() {
+      setState(() {});
+    });
+
+    controller.forward();
+  }
+
+  @override
+  void dispose() async {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeTransition(
+      opacity: opacityAnimation,
+      child: widget.child,
+    );
+  }
 }

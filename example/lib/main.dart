@@ -149,6 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
     PopupMenu menu = PopupMenu(
       context: context,
       config: const MenuConfig(maxColumn: 3),
+      duration: const Duration(milliseconds: 200),
       items: [
         PopUpMenuItem(title: 'Copy', image: Image.asset('assets/copy.png')),
         PopUpMenuItem(
