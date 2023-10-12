@@ -1,3 +1,7 @@
+## 0.0.6
+
+* Add animation option
+
 ## 0.0.5
 
 * Fix borderRadius issue
