@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:popup_menu_plus/src/popup_menu.dart';
 
 import 'menu_item.dart';
